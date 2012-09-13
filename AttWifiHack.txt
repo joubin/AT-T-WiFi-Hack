@@ -1,0 +1,18 @@
+display dialog "This program is still under testing. Please leave a review where you found the download link. For a fast response, leave a comment on sourceforge.com.
+
+	The legality of this program has not been verified and it is soly for educational purposes. Use at you own risk." with icon 1
+
+set macAddress to ""
+display dialog "Please enter the Wi-Fi address of your AT&T iPhone Wireless card. Don't know how? Settings>General>About" default answer macAddress
+set macAddress to text returned of the result
+set ipAddress to ""
+display dialog "Please enter the att network ip address that your iPhone is connected to. Settings>Wi-Fi: Tap on attwifi, then tap the blue arrow to the right. EX 192.168.1.2" default answer ipAddress
+set ipAddress to text returned of the result
+display dialog "Okay, we are almost done, your MAC address is " & macAddress & " and your IP address is " & ipAddress & ". Before hitting okay, make sure to turn off your iPhone's Wi-Fi. Settings>Wi-Fi: OFF"
+do shell script "sudo ifconfig en1 up" with administrator privileges
+
+do shell script "sudo ifconfig en1 ether " & macAddress with administrator privileges
+
+do shell script "sudo ifconfig en1 " & ipAddress & " up" with administrator privileges
+do shell script "sudo ifconfig en1 down" with administrator privileges
+do shell script "sudo ifconfig en1 up" with administrator privileges

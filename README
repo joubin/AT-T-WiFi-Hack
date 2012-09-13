@@ -1,0 +1,7 @@
+Turn Off iCloud -- READ ME
+There are two files in this directory.
+
+1. AttWifiHack.scpt
+	This is a file that should be open in AppleScript editor that is installed on all macs. 
+2. AttWifiHack.txt
+	In case you are using some other application to compile this applescript, or if you dont have a mac and just want to look at the source code.
